@@ -8,3 +8,4 @@ venv/
 *.word
 train_dataset.jsonl
 test_dataset.jsonl
+online_shopping_10_cats.csv
