@@ -25,8 +25,10 @@ class BaseTokenizer:
     def tokenize(cls,sentence)->list[str]:      #声明返回值
         pass
 
-    def encode(self,sentence):
+    def encode(self,sentence,add_sos_eos=False):
         tokens = [token for token in self.tokenize(sentence) if token.strip()]
+        if add_sos_eos:
+            tokens=[self.sos_token]+tokens+[self.eos_token]
         return [self.word2index.get(token,self.unk_token_index) for token in tokens]
 
     @classmethod
